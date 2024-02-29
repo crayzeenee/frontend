@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.2.0",
+    "chart.js": "^4.4.2",
     "igniteui-react-core": "^18.5.1",
     "igniteui-react-grids": "^18.5.1",
     "lodash": "^4.17.21",

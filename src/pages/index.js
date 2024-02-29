@@ -4,6 +4,8 @@ import ProgressBar from '@ramonak/react-progress-bar';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { GrAlert } from "react-icons/gr";
+import { TbPencilPlus } from "react-icons/tb";
+import { IoMdExit } from "react-icons/io";
 import dynamic from 'next/dynamic';
 
 
@@ -16,6 +18,8 @@ export default function Home() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [chancesOfFire, setChancesOfFire] = useState(0.3);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isSignUpModalVisible, setIsSignUpModalVisible] = useState(false);
+  const [isDoneSignUpModalVisible, setIsDoneSignUpModalVisible] = useState(false);
   
   // Simulated thermal data for demonstration purposes
   const thermalData = Array(64).fill(null).map(() => Math.floor(Math.random() * 50 + 1));
@@ -88,6 +92,29 @@ export default function Home() {
     setIsOverlayVisible(false);
   };
 
+  const handleSignUpClick = () => {
+    setIsSidebarVisible(false);
+    setIsSignUpModalVisible(true);
+    setIsOverlayVisible(true);
+  };
+
+  
+  const handleSignUpClose = () => {
+    setIsSignUpModalVisible(false);
+    setIsOverlayVisible(false);
+  };
+
+  const handleDoneSignUp = () => {
+    setIsSignUpModalVisible(false);
+    setIsOverlayVisible(true);
+    setIsDoneSignUpModalVisible(true);
+  };
+
+  const handleCloseSignUp = () => {
+    setIsOverlayVisible(false);
+    setIsDoneSignUpModalVisible(false);
+  };
+
   return (
     <>
         <Head>
@@ -102,11 +129,11 @@ export default function Home() {
 
     {/* Side-Nav-Bar */}
       <section className={`sidebar ${isSidebarVisible ? 'visible' : ''}`}>
-            <button className="sidebar-exit-button" onClick={closeSidebar}>X</button>
+            <button className="sidebar-exit-button" onClick={closeSidebar}><IoMdExit style={{ height: "20px", width: "20px" }} /></button>
             <nav className='sidenav'>
               <ul>
-                <li><a href="#home">Recent News</a></li>
-                <li><a href="#services">Sign-Up Other Account</a></li>
+                <li><a href="/recent-news">Recent News</a></li>
+                <li onClick={handleSignUpClick}>Sign-Up Other Account</li>
                 <li><a href="#contact">Update Account</a></li>
                 <li><a href="#contact">Log-Out</a></li>
               </ul>
@@ -275,7 +302,61 @@ export default function Home() {
 
       </div>
 
+
       {isOverlayVisible && <div className="overlay"></div>}
+
+      {isSignUpModalVisible && (
+        <div className='sign-up-modal'>
+          <div className='modal-content'>
+            <div className='title'>
+              <TbPencilPlus className='icon' />
+              <h2>Sign-Up Other Account</h2>
+            </div>
+            <div className='form'>
+              <div className='inputs'>
+                  <div className='input-field'>
+                    <label htmlFor="fname">First Name</label>
+                    <input type="fname" id="fname" name="fname" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="lname">Last Name</label>
+                    <input type="lname" id="lname" name="lname" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" />
+                  </div>
+              </div>
+            </div>
+            <div className='buttons'>
+              <button className='submit-button' onClick={handleDoneSignUp} type="submit">Sign Up</button>
+              <button className='close-button' onClick={handleSignUpClose}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+{isDoneSignUpModalVisible && (
+        <div className='sign-up-done'>
+          <div className='modal-content'>
+            <div className='title'>
+              <TbPencilPlus className='icon' />
+              <h2>Sign-Up Successful!</h2>
+            </div>
+            <div className='content'>
+              <p>Account created. It can now be accessed.</p>
+              <button className='close-button' onClick={handleCloseSignUp}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {isAlertModalVisible && (
         <div className='alert-modal'>
