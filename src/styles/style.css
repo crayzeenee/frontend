@@ -1,0 +1,501 @@
+section.head{
+    position: relative;
+    margin-left: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+section.head img{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+section.head .name{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.head p.title {
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+section.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #f4f4f4;
+    transition: left 0.3s ease;
+    z-index: 10000;
+}
+
+section.sidebar.visible {
+    left: 0;
+}
+
+
+section.sidebar .sidebar-exit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section.sidebar .sidebar-exit-button:hover {
+    background: #b1b1b1;
+}
+
+section.sidebar .sidenav{
+    margin: 50px 0 0 20px;
+}
+
+section.sidebar .sidenav ul {
+    list-style-type: none;
+}
+
+section.sidebar .sidenav ul li {
+    margin-bottom: 10px;
+    color: #FF5743;
+    font-size: 17px;
+    font-weight: 1000;
+    line-height: 22px;
+    text-decoration-line: underline;
+    font-family: 'Istok Web';
+
+
+}
+
+
+
+
+
+.forest-status{
+    max-width: calc(100% - 100px);
+    margin: 0 auto;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+}
+
+@media (max-width: 1290px) {
+    .forest-status{
+        max-width: calc(100% - 100px);
+        margin: 0 auto;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
+    }
+}
+
+.forest-status section.air-quality-index h1{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.forest-status section.air-quality-index .gas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}
+
+/* MQ-9 */
+
+.forest-status section.air-quality-index .LPG,
+.forest-status section.air-quality-index .CO,
+.forest-status section.air-quality-index .CH4{
+    box-sizing: border-box;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+}
+
+.forest-status section.air-quality-index .LPG h2,
+.forest-status section.air-quality-index .CO h2,
+.forest-status section.air-quality-index .CH4 h2{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 15px 0 20px 30px;
+}
+
+.forest-status section.air-quality-index .LPG .data,
+.forest-status section.air-quality-index .CO .data,
+.forest-status section.air-quality-index .CH4 .data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.forest-status section.air-quality-index .LPG .data .gauge1,
+.forest-status section.air-quality-index .CO .data .gauge1,
+.forest-status section.air-quality-index .CH4 .data .gauge1{
+    height: 150px;
+    
+}
+
+
+
+/* MQ-135 */
+.forest-status section.air-quality-index .NH3,
+.forest-status section.air-quality-index .CO2,
+.forest-status section.air-quality-index .C6H6{
+    box-sizing: border-box;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+}
+
+.forest-status section.air-quality-index .NH3 h2,
+.forest-status section.air-quality-index .CO2 h2,
+.forest-status section.air-quality-index .C6H6 h2{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 15px 0 20px 30px;
+}
+
+.forest-status section.air-quality-index .NH3 .data,
+.forest-status section.air-quality-index .CO2 .data,
+.forest-status section.air-quality-index .C6H6 .data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.forest-status section.air-quality-index .NH3 .data .gauge2,
+.forest-status section.air-quality-index .CO2 .data .gauge2,
+.forest-status section.air-quality-index .C6H6 .data .gauge2{
+    height: 150px;
+}
+
+
+.gauge1 .CircularProgressbar-path {
+    stroke: #FF5743 !important;
+}
+.gauge1 .CircularProgressbar-text {
+    fill: #000000 !important;
+    font-size: 16px !important;
+}
+
+.gauge2 .CircularProgressbar-path {
+    stroke: #FF8E4E !important;
+}
+.gauge2 .CircularProgressbar-text {
+    fill: #000000 !important;
+    font-size: 16px !important;
+}
+
+.forest-status section.heat-index h1{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.forest-status section.heat-index .heat {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}
+
+.forest-status section.heat-index .heat .two-sensors{
+    grid-column: 1 / span 2;
+}
+
+
+.forest-status section.heat-index .heat .two-sensors .Temperature,
+.forest-status section.heat-index .heat .two-sensors .Humidity{
+    box-sizing: border-box;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.forest-status section.heat-index .heat .two-sensors .Temperature h2,
+.forest-status section.heat-index .heat .two-sensors .Humidity h2{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 15px 0 20px 30px;
+}
+
+.forest-status section.heat-index .heat .two-sensors .Temperature .data,
+.forest-status section.heat-index .heat .two-sensors .Humidity .data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.forest-status section.heat-index .heat .two-sensors .Temperature .bar,
+.forest-status section.heat-index .heat .two-sensors .Humidity .bar {
+    width: 91%;
+}
+
+.forest-status section.heat-index .heat .alert{
+    box-sizing: border-box;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forest-status section.heat-index .heat .alert h1{
+    cursor: pointer;
+    color: #FF5743;
+    text-align: center;
+    font-size: 30px;
+}
+
+.forest-status section.heat-index .status{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}
+
+.forest-status section.heat-index .status .chances-of-fire{
+    box-sizing: border-box;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    height: 245px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forest-status section.heat-index .status .chances-of-fire h2{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+
+
+.forest-status section.heat-index .status .Camera{
+    box-sizing: border-box;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    height: 245px;
+    grid-column: 2 / -1;
+}
+
+
+.forest-status section.heat-index .status .Camera .title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.forest-status section.heat-index .status .Camera .title h2{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0 10px 30px;
+}
+
+.forest-status section.heat-index .status .Camera .title h5{
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration-line: underline;
+    color: #FF8E4E;
+    margin: 15px 30px 10px 0px;
+    cursor: pointer;
+}
+
+.forest-status section.heat-index .status .Camera .video{
+    height: 85%;
+    width: 100%;
+}
+
+
+
+.thermal-grid-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thermal-grid-container .thermal-table {
+    width: 50%;
+    border-collapse: collapse;
+
+}
+
+.thermal-grid-container .thermal-table th,
+.thermal-grid-container .thermal-table td {
+    width: 23px;
+    height: 23px;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.thermal-grid-container .thermal-table td {
+    padding: 0;
+    margin: 0;
+}
+
+.alert-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 636px;
+    height: 400px;
+    background-color: #EDEDED;
+    border-top: 10px solid #FF5743;
+    border-radius: 10px;
+    z-index: 1002;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+}
+
+
+.alert-modal .modal-content {
+    position: relative;
+    padding: 20px;
+}
+
+.alert-modal .modal-content .title{
+    display: flex;
+}
+
+.alert-modal  .modal-content .title .icon {
+    color: #FEC54C;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.alert-modal  .modal-content .title h2 {
+    font-size: 40px;
+    color: #FF5743;
+    margin-bottom: 20px;
+}
+
+.alert-modal  .modal-content p {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+
+.alert-modal .alert-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.alert-modal .alert-buttons .alert-cancel-button {
+    width: 210px;
+    height: 69px;
+    background-color: #CACACA;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+.alert-modal .alert-buttons .alert-send-button {
+    width: 210px;
+    height: 69px;
+    background-color: #FF5743;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(86, 86, 86, 0.5);
+    z-index: 999;
+}
+
+.sent-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 636px;
+    height: 400px;
+    background-color: #EDEDED;
+    border-top: 10px solid #FF5743;
+    border-radius: 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+}
+
+.sent-modal .modal-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sent-modal .modal-content h2 {
+    font-size: 40px;
+    color: #FF5743;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sent-modal .modal-content p {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+
+.sent-modal .alert-cancel-button {
+    width: 210px;
+    height: 69px;
+    background-color: #CACACA;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
