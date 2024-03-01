@@ -75,6 +75,8 @@ const RecentNews = () => {
   const [reportSummary, setReportSummary] = useState([]);
   const [isSignUpModalVisible, setIsSignUpModalVisible] = useState(false);
   const [isDoneSignUpModalVisible, setIsDoneSignUpModalVisible] = useState(false);
+  const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
+  const [isDoneUpdateModalVisible, setIsDoneUpdateModalVisible] = useState(false);
 
 
   const generateSummaries = (count) => {
@@ -139,6 +141,28 @@ const RecentNews = () => {
     setIsDoneSignUpModalVisible(false);
   };
 
+  const handleUpdateOpen = () => {
+    setIsSidebarVisible(false);
+    setIsUpdateModalVisible(true);
+    setIsOverlayVisible(true);
+  };
+
+  const handleUpdateClose = () => {
+    setIsUpdateModalVisible(false);
+    setIsOverlayVisible(false);
+  };
+
+  const handleDoneUpdate = () => {
+    setIsDoneUpdateModalVisible(true);
+    setIsOverlayVisible(true);
+    setIsUpdateModalVisible(false);
+  };
+
+  const handleCloseDoneUpdate = () => {
+    setIsDoneUpdateModalVisible(false);
+    setIsOverlayVisible(false);
+  };
+
   return (
     <>
       <Head>
@@ -158,8 +182,8 @@ const RecentNews = () => {
           <ul>
             <li><a href="/">Dashboard</a></li>
             <li onClick={handleSignUpClick}>Sign-Up Other Account</li>
-            <li><a href="#update">Update Account</a></li>
-            <li><a href="#logout">Log-Out</a></li>
+            <li onClick={handleUpdateOpen}>Update Account</li>
+            <li><a href="/log-in">Log-Out</a></li>
           </ul>
         </nav>
       </section>
@@ -203,14 +227,9 @@ const RecentNews = () => {
             </div>
             <div className='form'>
               <div className='inputs'>
-                  <div className='input-field'>
-                    <label htmlFor="fname">First Name</label>
-                    <input type="fname" id="fname" name="fname" />
-                  </div>
-
-                  <div className='input-field'>
-                    <label htmlFor="lname">Last Name</label>
-                    <input type="lname" id="lname" name="lname" />
+              <div className='input-field'>
+                    <label htmlFor="uname">Username</label>
+                    <input type="uname" id="uname" name="uname" />
                   </div>
 
                   <div className='input-field'>
@@ -222,6 +241,11 @@ const RecentNews = () => {
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" />
                   </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <input type="confirm-password" id="confirm-password" name="confirm-password" />
+                  </div>
               </div>
             </div>
             <div className='buttons'>
@@ -232,7 +256,7 @@ const RecentNews = () => {
         </div>
       )}
 
-{isDoneSignUpModalVisible && (
+      {isDoneSignUpModalVisible && (
         <div className='sign-up-done'>
           <div className='modal-content'>
             <div className='title'>
@@ -246,6 +270,60 @@ const RecentNews = () => {
           </div>
         </div>
       )}
+
+      {isUpdateModalVisible && (
+        <div className='update-modal'>
+          <div className='modal-content'>
+            <div className='title'>
+              <TbPencilPlus className='icon' />
+              <h2>Update Account</h2>
+            </div>
+            <div className='form'>
+              <div className='inputs'>
+                  <div className='input-field'>
+                    <label htmlFor="uname">Username</label>
+                    <input type="uname" id="uname" name="uname" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <input type="confirm-password" id="confirm-password" name="confirm-password" />
+                  </div>
+              </div>
+            </div>
+            <div className='buttons'>
+              <button className='submit-button' onClick={handleDoneUpdate} type="submit">Update</button>
+              <button className='close-button' onClick={handleUpdateClose }>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isDoneUpdateModalVisible && (
+        <div className='update-done'>
+          <div className='modal-content'>
+            <div className='title'>
+              <TbPencilPlus className='icon' />
+              <h2>Update Successful!</h2>
+            </div>
+            <div className='content'>
+              <p>Account Updated Successfully.</p>
+              <button className='close-button' onClick={handleCloseDoneUpdate }>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </>
   );
 };

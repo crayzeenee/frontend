@@ -1,3 +1,71 @@
+/* LogIn */
+section.log-in{
+    width: 508px;
+    height: 540px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EDEDED;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+section.log-in img{
+    width: 150px;
+    height: 150px;
+}
+
+section.log-in .form .inputs{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section.log-in .form .inputs .input-field{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+}
+
+section.log-in .form .inputs .input-field label{
+    margin-bottom: 10px;
+}
+section.log-in .form .inputs .input-field input{
+    box-sizing: border-box;
+    width: 284px;
+    height: 40px;
+    border: 1px solid #6E6E6E;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+section.log-in .buttons {
+    padding-top: 20px;
+}
+
+section.log-in .buttons  .submit-button {
+    width: 150px;
+    height: 40px;
+    background-color:#FF8E4E;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+/* Header */
+
 section.head{
     position: relative;
     margin-left: 30px;
@@ -28,6 +96,9 @@ section.head p.title {
 }
 
 
+
+/* SideNav */
+
 section.sidebar {
     position: fixed;
     left: -250px;
@@ -42,7 +113,6 @@ section.sidebar {
 section.sidebar.visible {
     left: 0;
 }
-
 
 section.sidebar .sidebar-exit-button {
     position: absolute;
@@ -59,7 +129,6 @@ section.sidebar .sidebar-exit-button {
     font-weight: bold;
     cursor: pointer;
 }
-
 
 section.sidebar .sidebar-exit-button:hover {
     background: #b1b1b1;
@@ -94,6 +163,10 @@ section.sidebar .sidenav ul li:hover {
     font-family: 'Istok Web';
 }
 
+
+
+/* Dashboard Status */
+
 .forest-status{
     max-width: calc(100% - 100px);
     margin: 0 auto;
@@ -114,6 +187,9 @@ section.sidebar .sidenav ul li:hover {
     }
 }
 
+
+/* Air Quality Index */
+
 .forest-status section.air-quality-index h1{
     font-size: 25px;
     font-weight: bold;
@@ -126,6 +202,7 @@ section.sidebar .sidenav ul li:hover {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
 }
+
 
 /* MQ-9 */
 
@@ -159,12 +236,11 @@ section.sidebar .sidenav ul li:hover {
 .forest-status section.air-quality-index .CO .data .gauge1,
 .forest-status section.air-quality-index .CH4 .data .gauge1{
     height: 150px;
-    
 }
 
 
-
 /* MQ-135 */
+
 .forest-status section.air-quality-index .NH3,
 .forest-status section.air-quality-index .CO2,
 .forest-status section.air-quality-index .C6H6{
@@ -197,7 +273,6 @@ section.sidebar .sidenav ul li:hover {
     height: 150px;
 }
 
-
 .gauge1 .CircularProgressbar-path {
     stroke: #FF5743 !important;
 }
@@ -214,12 +289,15 @@ section.sidebar .sidenav ul li:hover {
     font-size: 16px !important;
 }
 
+
+
+/* Heat Index */
+
 .forest-status section.heat-index h1{
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
 }
-
 
 .forest-status section.heat-index .heat {
     display: grid;
@@ -231,6 +309,8 @@ section.sidebar .sidenav ul li:hover {
     grid-column: 1 / span 2;
 }
 
+
+/* Temperature and Humidity */
 
 .forest-status section.heat-index .heat .two-sensors .Temperature,
 .forest-status section.heat-index .heat .two-sensors .Humidity{
@@ -260,6 +340,9 @@ section.sidebar .sidenav ul li:hover {
 .forest-status section.heat-index .heat .two-sensors .Humidity .bar {
     width: 91%;
 }
+
+
+/* Chances of Fire and Cameras */
 
 .forest-status section.heat-index .heat .alert{
     box-sizing: border-box;
@@ -343,6 +426,7 @@ section.sidebar .sidenav ul li:hover {
 }
 
 
+/* Thermal Camera */
 
 .thermal-grid-container {
     text-align: center;
@@ -355,7 +439,6 @@ section.sidebar .sidenav ul li:hover {
 .thermal-grid-container .thermal-table {
     width: 50%;
     border-collapse: collapse;
-
 }
 
 .thermal-grid-container .thermal-table th,
@@ -364,13 +447,16 @@ section.sidebar .sidenav ul li:hover {
     height: 23px;
     padding: 0;
     margin: 0;
-    
 }
 
 .thermal-grid-container .thermal-table td {
     padding: 0;
     margin: 0;
 }
+
+
+
+/* Alert Modal */
 
 .alert-modal {
     position: fixed;
@@ -420,7 +506,6 @@ section.sidebar .sidenav ul li:hover {
     margin-bottom: 20px;
 }
 
-
 .alert-modal .alert-buttons {
     display: flex;
     justify-content: space-between;
@@ -457,6 +542,9 @@ section.sidebar .sidenav ul li:hover {
     background: rgba(86, 86, 86, 0.5);
     z-index: 999;
 }
+
+
+/* Alert Sent Modal */
 
 .sent-modal {
     position: fixed;
@@ -509,6 +597,9 @@ section.sidebar .sidenav ul li:hover {
     cursor: pointer;
 }
 
+
+
+/* Recent News */
 
 section.bar-chart{
     max-width: calc(100% - 100px);
@@ -629,6 +720,10 @@ section.bar-chart .graph{
     
 }
 
+
+
+/* Sign-Up Modal */
+
 .sign-up-modal{
     width: 708px;
     height: 540px;
@@ -720,16 +815,6 @@ section.bar-chart .graph{
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
 .sign-up-done{
     width: 550px;
     height: 340px;
@@ -747,7 +832,6 @@ section.bar-chart .graph{
     align-items: center;
     z-index: 1000;
 }
-
 
 .sign-up-done .modal-content {
     position: relative;
@@ -795,3 +879,159 @@ section.bar-chart .graph{
 }
 
 
+
+/* Update Account Modal */
+
+.update-modal{
+    width: 708px;
+    height: 540px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EDEDED; 
+    border-top: 10px solid #FEC54C;
+    border-radius: 10px;
+    padding: 50px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+
+.update-modal .modal-content {
+    position: relative;
+}
+
+.update-modal .modal-content .title{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.update-modal .modal-content .title .icon {
+    color: #FEC54C;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.update-modal .modal-content .title h2 {
+    font-size: 40px;
+    color: #FEC54C;
+    margin-bottom: 20px;
+}
+
+.update-modal .modal-content .form .inputs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+
+.update-modal .modal-content .form .inputs .input-field{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px 10px 0;
+}
+
+.update-modal .modal-content .form .inputs .input-field label{
+    margin-bottom: 10px;
+}
+.update-modal .modal-content .form .inputs .input-field input{
+    box-sizing: border-box;
+    width: 284px;
+    height: 40px;
+    border: 1px solid #6E6E6E;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.update-modal .modal-content .buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.update-modal .modal-content .buttons  .close-button {
+    width: 210px;
+    height: 69px;
+    background-color: #CACACA;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+.update-modal .modal-content .buttons  .submit-button {
+    width: 210px;
+    height: 69px;
+    background-color:#FEC54C;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.update-done{
+    width: 550px;
+    height: 340px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EDEDED; 
+    border-top: 10px solid #FEC54C;
+    border-radius: 10px;
+    padding: 50px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.update-done .modal-content {
+    position: relative;
+}
+
+.update-done .modal-content .title{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.update-done .modal-content .title .icon {
+    color: #FEC54C;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.update-done .modal-content .title h2 {
+    font-size: 40px;
+    color: #FEC54C;
+}
+
+.update-done .modal-content .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-done .modal-content .content p{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.update-done .modal-content .content .close-button {
+    margin-top: 20px;
+    width: 210px;
+    height: 69px;
+    background-color: #CACACA;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}

@@ -20,6 +20,8 @@ export default function Home() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isSignUpModalVisible, setIsSignUpModalVisible] = useState(false);
   const [isDoneSignUpModalVisible, setIsDoneSignUpModalVisible] = useState(false);
+  const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
+  const [isDoneUpdateModalVisible, setIsDoneUpdateModalVisible] = useState(false);
   
   // Simulated thermal data for demonstration purposes
   const thermalData = Array(64).fill(null).map(() => Math.floor(Math.random() * 50 + 1));
@@ -67,21 +69,18 @@ export default function Home() {
     setIsOverlayVisible(true);
   };
 
-  // Function to handle closing the Alert Modal and overlay
   const handleCloseModal = () => {
     setIsAlertModalVisible(false);
     setIsOverlayVisible(false);
     setIsSentModalVisible(false);
   };
 
-  // Function to handle sending the alert (opens Sent Modal)
   const handleSendAlert = () => {
     setIsAlertModalVisible(false);
     setIsSentModalVisible(true);
   };
 
 
-  // Function to toggle sidebar visibility
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
     setIsOverlayVisible(true);
@@ -98,7 +97,29 @@ export default function Home() {
     setIsOverlayVisible(true);
   };
 
-  
+  const handleUpdateOpen = () => {
+    setIsSidebarVisible(false);
+    setIsUpdateModalVisible(true);
+    setIsOverlayVisible(true);
+  };
+
+  const handleUpdateClose = () => {
+    setIsUpdateModalVisible(false);
+    setIsOverlayVisible(false);
+  };
+
+  const handleDoneUpdate = () => {
+    setIsDoneUpdateModalVisible(true);
+    setIsOverlayVisible(true);
+    setIsUpdateModalVisible(false);
+  };
+
+  const handleCloseDoneUpdate = () => {
+    setIsDoneUpdateModalVisible(false);
+    setIsOverlayVisible(false);
+  };
+
+
   const handleSignUpClose = () => {
     setIsSignUpModalVisible(false);
     setIsOverlayVisible(false);
@@ -134,8 +155,8 @@ export default function Home() {
               <ul>
                 <li><a href="/recent-news">Recent News</a></li>
                 <li onClick={handleSignUpClick}>Sign-Up Other Account</li>
-                <li><a href="#contact">Update Account</a></li>
-                <li><a href="#contact">Log-Out</a></li>
+                <li onClick={handleUpdateOpen}>Update Account</li>
+                <li><a href="/log-in">Log-Out</a></li>
               </ul>
             </nav>
       </section>
@@ -314,14 +335,9 @@ export default function Home() {
             </div>
             <div className='form'>
               <div className='inputs'>
-                  <div className='input-field'>
-                    <label htmlFor="fname">First Name</label>
-                    <input type="fname" id="fname" name="fname" />
-                  </div>
-
-                  <div className='input-field'>
-                    <label htmlFor="lname">Last Name</label>
-                    <input type="lname" id="lname" name="lname" />
+              <div className='input-field'>
+                    <label htmlFor="uname">Username</label>
+                    <input type="uname" id="uname" name="uname" />
                   </div>
 
                   <div className='input-field'>
@@ -333,6 +349,11 @@ export default function Home() {
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" />
                   </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <input type="confirm-password" id="confirm-password" name="confirm-password" />
+                  </div>
               </div>
             </div>
             <div className='buttons'>
@@ -343,7 +364,7 @@ export default function Home() {
         </div>
       )}
 
-{isDoneSignUpModalVisible && (
+      {isDoneSignUpModalVisible && (
         <div className='sign-up-done'>
           <div className='modal-content'>
             <div className='title'>
@@ -353,6 +374,59 @@ export default function Home() {
             <div className='content'>
               <p>Account created. It can now be accessed.</p>
               <button className='close-button' onClick={handleCloseSignUp}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isUpdateModalVisible && (
+        <div className='update-modal'>
+          <div className='modal-content'>
+            <div className='title'>
+              <TbPencilPlus className='icon' />
+              <h2>Update Account</h2>
+            </div>
+            <div className='form'>
+              <div className='inputs'>
+                  <div className='input-field'>
+                    <label htmlFor="uname">Username</label>
+                    <input type="uname" id="uname" name="uname" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" />
+                  </div>
+
+                  <div className='input-field'>
+                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <input type="confirm-password" id="confirm-password" name="confirm-password" />
+                  </div>
+              </div>
+            </div>
+            <div className='buttons'>
+              <button className='submit-button' onClick={handleDoneUpdate} type="submit">Update</button>
+              <button className='close-button' onClick={handleUpdateClose }>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isDoneUpdateModalVisible && (
+        <div className='update-done'>
+          <div className='modal-content'>
+            <div className='title'>
+              <TbPencilPlus className='icon' />
+              <h2>Update Successful!</h2>
+            </div>
+            <div className='content'>
+              <p>Account Updated Successfully.</p>
+              <button className='close-button' onClick={handleCloseDoneUpdate }>Close</button>
             </div>
           </div>
         </div>
